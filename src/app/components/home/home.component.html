@@ -1,13 +1,20 @@
 
-<main class="container content" >
-  <app-weather></app-weather>
+<main class="container" >
+<div class="content">
 
-  <p>home works! {{name}} </p>
-  <img [src]="urlImg()"/>
+  <section class="container-section">
+    <app-weather></app-weather>
 
-  <button (click)="getImg()" >show the weather</button>
+    <div class="content-invitation">
+      <img [src]="urlImg()"/>
+      <button (click)="getImg()" >show the weather</button>
+      <app-invitation></app-invitation>
 
-  <app-invitation></app-invitation>
+    </div>
+  </section>
+
+</div>
+
 
   <app-footer></app-footer>
 </main>

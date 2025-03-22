@@ -1,0 +1,64 @@
+<div class="weather-container">
+  <div class="weather-card">
+    <div class="card-header">
+      <h2>Previsão do Tempo</h2>
+    </div>
+    <div class="card-content">
+      <div class="search-container">
+        <button (click)="getCurrentLocation()" class="location-btn">
+
+          <fa-icon [icon]="location"></fa-icon>
+          Usar Minha Localização
+        </button>
+
+        <span class="divider">ou</span>
+
+        <div class="input-group">
+          <input list="task_options" type="text" [(ngModel)]="city" placeholder="Digite o nome da cidade">
+          <datalist id="task_options">
+            <option *ngFor="let city of ['Porto Alegre', 'Rio de janeiro', 'São Paulo', 'Recife']" [value]="city"></option>
+          </datalist>
+          <button (click)="search()" class="search-btn">
+            <fa-icon [icon]="searchIcon"></fa-icon>
+          </button>
+        </div>
+      </div>
+
+      @if (errorMessage) {
+        <div class="error">{{ errorMessage }}</div>
+      }
+
+      @if (isLoading) {
+        <div class="loading">
+          <svg class="spinner" viewBox="0 0 50 50">
+            <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+          </svg>
+          <span>Obtendo sua localização...</span>
+        </div>
+      }
+
+      @if (weatherData && !isLoading) {
+        <div class="weather-info">
+          <div class="weather-main">
+            <div class="weather-details">
+              <h3>{{ weatherData.name }}, {{ weatherData.sys.country }}</h3>
+              <p class="temperature">{{ weatherData.main.temp | number:'1.0-0' }}°C</p>
+              <p class="feels-like">Sensação térmica: {{ weatherData.main.feels_like | number:'1.0-0' }}°C</p>
+            </div>
+            <div class="weather-icon">
+              <img [src]="getWeatherIcon(weatherData.weather[0].icon)" [alt]="weatherData.weather[0].description">
+              <p>{{ capitalizeFirstLetter(weatherData.weather[0].description) }}</p>
+            </div>
+          </div>
+          <div class="weather-extra">
+            <div class="extra-item">
+              <p class="label">Umidade</p>
+              <p class="value">{{ weatherData.main.humidity }}%</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>
+

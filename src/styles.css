@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
 .container{
-  max-width: 1250px;
+  height: 100dvh;
+  background: linear-gradient(to bottom, #f0f8ff, #e6f2ff);
 }
