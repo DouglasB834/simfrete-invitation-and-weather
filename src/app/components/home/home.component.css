@@ -1,0 +1,9 @@
+.content {
+  display:flex;
+  flex:flex-col;
+  flex-direction:column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background:
+}
+
