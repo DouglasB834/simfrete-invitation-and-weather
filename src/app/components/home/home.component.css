@@ -9,11 +9,16 @@
   height: 100%;
   display: flex;
   gap: 1rem;
-  justify-content:space-between
-
+  justify-content: space-between
 }
 
-.content-invitation {
-  width: 73%;
-  background :blue;
+@media (max-width: 768px) {
+  .container-section {
+    flex-direction: column;
+  }
 }
+
+.invitation{
+  width: 100%
+}
+

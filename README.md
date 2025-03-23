@@ -1,6 +1,8 @@
 # SimfreteInvitationAndWeather
 
-Aplicação Angular que exibe informações meteorológicas em tempo real usando a API do OpenWeatherMap.
+Aplicação Angular que exibe informações meteorológicas em tempo real usando a API do OpenWeatherMap e Gerando um convite  
+
+<img src="././public/weather_invitation.png" alt="Prévia Simfrete Invitation And Weather " style="width: 800px; height: auto; margin: auto;"/>
 
 ## 🚀 Começando
 
@@ -14,7 +16,7 @@ Aplicação Angular que exibe informações meteorológicas em tempo real usando
 
 1. Clone o repositório:
 ```bash
-git clone [url-do-repositório]
+git clone [git@github.com:DouglasB834/simfrete-invitation-and-weather.git]
 ```
 
 2. Instale as dependências:
@@ -28,6 +30,23 @@ npm run start
 ```
 
 4. Acesse `http://localhost:4200` no seu navegador
+
+## 🔑 Configuração das Chaves de API
+
+### OpenWeatherMap API Key
+
+1. Acesse [OpenWeatherMap](https://home.openweathermap.org/api_keys) e crie uma conta gratuita
+2. Gere sua chave de API
+3. Configure a chave no arquivo `src/environments/environment.ts`:
+```typescript
+export const environment = {
+  production: false,
+  API_KEY: 'sua_chave_api_aqui',
+  API_URL: 'https://api.openweathermap.org/data/2.5/weather'
+};
+```
+### Observações Importantes
+- A chave gratuita tem limite de 60 chamadas por minuto
 
 ## 🌤️ API OpenWeatherMap
 
@@ -62,7 +81,7 @@ A API retorna informações como:
 - Ícone representativo
 
 ### Ícones do Clima
-```http
+```typescript
 GET https://openweathermap.org/img/wn/{icon_code}@2x.png
 ```
 Códigos dos ícones disponíveis:
@@ -136,3 +155,6 @@ Retorna previsão para 5 dias com intervalos de 3 horas, incluindo:
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
 
 
+## 🎉 Mensagem Doug
+
+Este é meu primeiro projeto em Angular! Foi desafiador, mas muito divertido também. Espero conseguir entender melhor algumas funções e, principalmente, como reaproveitar componentes com loops, assim como fazia em React com o método `map`. Aqui, estou aprendendo a usar `for` e a aproveitar melhor o TypeScript, que sinto que foi pouco utilizado até agora. Estou animado para continuar essa jornada!
