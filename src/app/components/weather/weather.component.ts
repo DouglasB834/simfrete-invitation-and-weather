@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, DecimalPipe } from '@angular/common';
-import { faSearch, faLocationPin, faMapLocation } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faMapLocation } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { GetWeatherService } from '../../services/get-weather.service';//sempre que importo da error
