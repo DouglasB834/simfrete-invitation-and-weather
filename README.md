@@ -2,6 +2,10 @@
 
 Aplicação Angular que exibe informações meteorológicas em tempo real usando a API do OpenWeatherMap e Gerando um convite  
 
+Você pode acessar a aplicação hospedada no Vercel através do seguinte link:
+
+[weather and invitation <- ](https://simfrete-invitation-and-weather.vercel.app/)
+
 <img src="././public/weather_invitation.png" alt="Prévia Simfrete Invitation And Weather " style="width: 800px; height: auto; margin: auto;"/>
 
 ## 🚀 Começando
