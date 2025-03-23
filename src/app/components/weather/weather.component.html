@@ -46,7 +46,7 @@
               <p class="feels-like">Sensação térmica: {{ weatherData.main.feels_like | number:'1.0-0' }}°C</p>
             </div>
             <div class="weather-icon">
-              <img [src]="getWeatherIcon(weatherData.weather[0].icon)" [alt]="weatherData.weather[0].description">
+              <img class="" [src]="getWeatherIcon(weatherData.weather[0].icon)" [alt]="weatherData.weather[0].description">
               <p>{{ capitalizeFirstLetter(weatherData.weather[0].description) }}</p>
             </div>
           </div>

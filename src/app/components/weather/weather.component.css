@@ -1,6 +1,5 @@
 .weather-container {
   min-width: 25%;
-  background:yellow;
   padding: .5rem 0;
 
 }
@@ -163,6 +162,7 @@ input:focus {
 
 .weather-main {
   display: flex;
+  gap: 0.6rem;
   justify-content: space-between;
   align-items: center;
 }
@@ -194,8 +194,8 @@ input:focus {
 }
 
 .weather-icon img {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
 }
 
 .weather-icon p {

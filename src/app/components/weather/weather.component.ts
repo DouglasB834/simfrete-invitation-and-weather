@@ -93,7 +93,7 @@ export class WeatherComponent implements OnInit {
   getWeatherIcon(iconCode: string): string {
     //10d || 01d ...
     https://openweathermap.org/img/wn/01d@2x.png
-    return `https://openweathermap.org/img/wn/${iconCode}@2x.png`
+    return this.service.getweatherIcon(iconCode)
   }
 
   capitalizeFirstLetter(string: string): string {
