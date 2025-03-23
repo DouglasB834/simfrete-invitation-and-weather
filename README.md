@@ -16,7 +16,7 @@ Aplicação Angular que exibe informações meteorológicas em tempo real usando
 
 1. Clone o repositório:
 ```bash
-git clone [git@github.com:DouglasB834/simfrete-invitation-and-weather.git]
+git clone git@github.com:DouglasB834/simfrete-invitation-and-weather.git
 ```
 
 2. Instale as dependências:
