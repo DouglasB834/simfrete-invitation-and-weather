@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators, ValidationErrors } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faRotateRight, faSpinner, faPhone, faMailBulk, faMapLocation} from '@fortawesome/free-solid-svg-icons';
 
@@ -38,6 +38,8 @@ export class InvitationComponent {
   isLoading = false;
 
   constructor(private fb: FormBuilder) {
+
+
     this.invitationForm = this.fb.group({
       name: ["", [Validators.required, Validators.minLength(3)]],
       age: [null, [Validators.required, Validators.min(1), Validators.max(120)]],
@@ -48,9 +50,16 @@ export class InvitationComponent {
       number: ["", Validators.required],
       neighborhood: ["", [Validators.required, Validators.minLength(3)]],
       city: ["", [Validators.required, Validators.minLength(3)]],
-      date: ["", Validators.required],
+      date: ["", [Validators.required, this.futureDateValidator]],
       message: ["", [Validators.required, Validators.minLength(10)]],
     })
+  }
+
+  futureDateValidator(control: AbstractControl): ValidationErrors | null {
+    const selectedDate = new Date(control.value);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return selectedDate >= today ? null : { pastDate: true };
   }
 
   onSubmit() {

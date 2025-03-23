@@ -2,21 +2,18 @@
   <div class="content-invitation">
     <div class="invitation-image-container">
       <figure class="relative">
-        <!-- Se estiver carregando, mostra apenas o spinner -->
         <img
           *ngIf="!isLoading"
-          [src]="urlImg()"
+          [src]="urlImg() || ''"
           alt="Imagem do convite"
+          loading="lazy"
           class="invitation-image"
         />
-
-        <!-- Ícone de Loading no Centro -->
         <div *ngIf="isLoading" class="loading-overlay">
           <fa-icon [icon]="spinnerIcon" size="3x"></fa-icon>
           <p>Loading ....</p>
         </div>
 
-        <!-- Botão para trocar imagem -->
         <button (click)="getImg()" class="btn-change-img" title="Trocar Imagem">
           <fa-icon
             [icon]="changeIcon"
@@ -255,14 +252,9 @@
               formControlName="date"
               class="form-control"
             />
-            <div
-              *ngIf="
-                invitationForm.controls['date'].invalid &&
-                invitationForm.controls['date'].touched
-              "
-              class="error-message"
-            >
-              <small>Data é obrigatória.</small>
+            <div *ngIf="invitationForm.controls['date'].invalid && invitationForm.controls['date'].touched" class="error-message">
+              <small *ngIf="invitationForm.controls['date'].errors?.['required']">Data é obrigatória.</small>
+              <small *ngIf="invitationForm.controls['date'].errors?.['pastDate']">A data deve ser igual ou posterior a hoje.</small>
             </div>
           </div>
         </div>
@@ -327,8 +319,9 @@
 
           <div class="invitation-content">
             <img
-              [src]="invitationData?.image || 'assets/default-avatar.png'"
-              alt="Foto do Aniversariante"
+              [src]="invitationData?.image || ''"
+              alt="Foto do Evento"
+              loading="lazy"
               class="invite-img"
             />
 
